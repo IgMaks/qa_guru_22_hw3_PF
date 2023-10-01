@@ -6,23 +6,24 @@ import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 import pages.TextBoxPage;
 
-public class TextBoxTest {
+public class TextBox {
     TextBoxPage textBoxPage = new TextBoxPage();
     RegistrationPage registrationPage = new RegistrationPage();
 
     @BeforeAll
-    static void beforeAll(){
+    static void beforeAll() {
         Configuration.holdBrowserOpen = false;
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy="eager";
+        Configuration.pageLoadStrategy = "eager";
     }
+
     @Test
-    void SuccessTestTextBox(){
+    void SuccessTextBox() {
         String fullName = "Ivan Ivanov",
-               userEmail = "Ivanovich@ya.ru",
-               currentAddress = "Мордовия",
-               permanentAddress = "Саранск";
+                userEmail = "Ivanovich@ya.ru",
+                currentAddress = "Мордовия",
+                permanentAddress = "Саранск";
 
         textBoxPage.openPage()
                 .setFullName(fullName)
@@ -36,8 +37,6 @@ public class TextBoxTest {
                 .verifyResult("Email:", userEmail)
                 .verifyResult("Current Address :", currentAddress)
                 .verifyResult("Permananet Address :", permanentAddress);
-
-
 
 
     }
