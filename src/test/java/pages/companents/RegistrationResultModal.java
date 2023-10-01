@@ -20,4 +20,5 @@ public class RegistrationResultModal {
                 .shouldHave(text(value));
 
     }
+
 }
