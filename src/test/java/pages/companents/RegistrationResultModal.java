@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
 public class RegistrationResultModal {
-    private final String titleText = "Student Registration Form";
     public void buttonSubmit(){
         $("#submit").click();
 

@@ -1,10 +1,7 @@
 package tests;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
-import pages.TestBase;
 import pages.TextBoxPage;
 
 public class TextBox extends TestBase {
