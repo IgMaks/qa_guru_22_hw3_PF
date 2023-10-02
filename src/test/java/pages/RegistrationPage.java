@@ -14,20 +14,34 @@ public class RegistrationPage {
     private Calendar calendar = new Calendar();
     private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
-    private final String titleText = "Student Registration Form";
+
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
             emailInput = $("#userEmail"),
-            setDateOfBirthDate = $("#dateOfBirthInput");
+            setDateOfBirthDate = $("#dateOfBirthInput"),
+            genterWrapperInput = $("#genterWrapper"),
+            userPhone = $("#userNumber"),
+            subjects = $("#subjectsInput"),
+            currentAddress = $("#currentAddress"),
+            userHobbies = $("label[for='hobbies-checkbox-2']"),
+            pictureLoad = $("#uploadPicture"),
+            state = $("#state"),
+            stateInput = $("#react-select-3-input"),
+            city = $("#city"),
+            cityInput = $("#react-select-4-input"),
+            titleText = $("#example-modal-sizes-title-lg");
 
 
     public RegistrationPage openPage() {
         open("/automation-practice-form");
-        $(".practice-form-wrapper").shouldHave(text(titleText));
+
+        return this;
+    }
+
+    public RegistrationPage closeBan() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-
         return this;
     }
 
@@ -50,26 +64,26 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setGender(String value) {
-        $("#genterWrapper").$(byText(value)).click();
+        genterWrapperInput.$(byText(value)).click();
 
         return this;
     }
 
     public RegistrationPage setPhoneNumber(String value) {
-        $("#userNumber").setValue(value);
+        userPhone.setValue(value);
 
         return this;
     }
 
     public RegistrationPage setSubjects(String value) {
-        $("#subjectsInput").setValue(value).pressEnter();
+        subjects.setValue(value).pressEnter();
 
         return this;
 
     }
 
     public RegistrationPage setCurrentAddress(String value) {
-        $("#currentAddress").setValue(value);
+        currentAddress.setValue(value);
 
         return this;
 
@@ -82,45 +96,45 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage verifyResultModalAppeals() {
-        registrationResultModal.verifyModalAppeals();
-
-        return this;
-    }
 
     public RegistrationPage verifyResult(String key, String value) {
         registrationResultModal.verifyResult(key, value);
 
         return this;
     }
-    public RegistrationPage clickButton(){
+
+    public RegistrationPage clickButton() {
         registrationResultModal.buttonSubmit();
         return this;
 
     }
 
+    public RegistrationPage titleText(String value) {
+        titleText.shouldHave(text(value));
+        return this;
+    }
+
     public RegistrationPage setHobbies() {
-        $("label[for='hobbies-checkbox-2']").click();
+        userHobbies.click();
 
         return this;
     }
 
     public RegistrationPage uploadFile(String value) {
-        $("#uploadPicture").uploadFile(new File(value));
+        pictureLoad.uploadFile(new File(value));
         return this;
     }
 
     public RegistrationPage setState(String value) {
-        $("#state").click();
-        $("#react-select-3-input").setValue(value).pressEnter();
+        state.click();
+        stateInput.setValue(value).pressEnter();
 
         return this;
     }
 
     public RegistrationPage setCity(String value) {
-        $("#city").click();
-        $("#react-select-4-input").setValue(value).pressEnter();
+        city.click();
+        cityInput.setValue(value).pressEnter();
         return this;
     }
-
 }

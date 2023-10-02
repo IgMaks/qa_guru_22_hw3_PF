@@ -4,19 +4,12 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
+import pages.TestBase;
 import pages.TextBoxPage;
 
-public class TextBox {
+public class TextBox extends TestBase {
     TextBoxPage textBoxPage = new TextBoxPage();
     RegistrationPage registrationPage = new RegistrationPage();
-
-    @BeforeAll
-    static void beforeAll() {
-        Configuration.holdBrowserOpen = false;
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-    }
 
     @Test
     void SuccessTextBox() {
@@ -25,7 +18,8 @@ public class TextBox {
                 currentAddress = "Мордовия",
                 permanentAddress = "Саранск";
 
-        textBoxPage.openPage()
+        textBoxPage.closeBan()
+                .openPage()
                 .setFullName(fullName)
                 .setPermanentAddress(permanentAddress);
         registrationPage.setEmail(userEmail)

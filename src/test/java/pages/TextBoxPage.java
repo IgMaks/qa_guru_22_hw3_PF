@@ -13,6 +13,7 @@ public class TextBoxPage {
 
     private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
+
     private final String titleText = "Text Box";
     private SelenideElement
             fullNameInput = $("#userName"),
@@ -23,10 +24,14 @@ public class TextBoxPage {
     public TextBoxPage openPage() {
         open("/text-box");
         $(".main-header").shouldHave(text(titleText));
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
+
 
         return this;
+    }
+    public TextBoxPage closeBan(){
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+        return null;
     }
 
 
