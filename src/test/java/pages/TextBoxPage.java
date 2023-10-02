@@ -3,8 +3,6 @@ package pages;
 import com.codeborne.selenide.SelenideElement;
 import pages.companents.RegistrationResultModal;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
@@ -31,7 +29,7 @@ public class TextBoxPage {
     public TextBoxPage closeBan(){
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        return null;
+        return this;
     }
 
 

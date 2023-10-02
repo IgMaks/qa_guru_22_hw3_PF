@@ -18,8 +18,8 @@ public class TextBox extends TestBase {
                 currentAddress = "Мордовия",
                 permanentAddress = "Саранск";
 
-        textBoxPage.closeBan()
-                .openPage()
+        textBoxPage.openPage()
+                .closeBan()
                 .setFullName(fullName)
                 .setPermanentAddress(permanentAddress);
         registrationPage.setEmail(userEmail)
@@ -31,8 +31,6 @@ public class TextBox extends TestBase {
                 .verifyResult("Email:", userEmail)
                 .verifyResult("Current Address :", currentAddress)
                 .verifyResult("Permananet Address :", permanentAddress);
-
-
     }
 
 
