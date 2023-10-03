@@ -2,15 +2,12 @@ package utils;
 
 import com.github.javafaker.Faker;
 
-
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Random;
+
 
 public class Utils {
     public Faker faker = new Faker(new Locale("en"));
-    Random random = new Random();
-
 
     public String userName = faker.name().firstName(),
             lastName = faker.name().lastName(),
@@ -67,7 +64,6 @@ public class Utils {
     }
 
     public String getFileName() {
-
         return "src/test/resources/file.jpg";
     }
 

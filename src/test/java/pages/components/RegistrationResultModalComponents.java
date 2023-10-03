@@ -9,6 +9,10 @@ public class RegistrationResultModalComponents {
         $("#submit").click();
 
     }
+    public void closeModal(){
+        $("#closeLargeModal").click();
+
+    }
 
     public void verifyResult(String key, String value){
         $(".table-responsive").$(byText(key)).parent()

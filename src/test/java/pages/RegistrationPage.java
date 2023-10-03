@@ -16,20 +16,19 @@ public class RegistrationPage {
 
     private SelenideElement
             firstNameInput = $("#firstName"),
-   lastNameInput = $("#lastName"),
-     emailInput = $("#userEmail"),
-     setDateOfBirthDate = $("#dateOfBirthInput"),
-     genterWrapperInput = $("#genterWrapper"),
-     userPhone = $("#userNumber"),
-     subjects = $("#subjectsInput"),
-     currentAddress = $("#currentAddress"),
-     userHobbies = $("#hobbiesWrapper"),
-    state = $("#state"),
-    stateInput = $("#react-select-3-input"),
-    city = $("#city"),
-    cityInput = $("#react-select-4-input"),
-    titleText = $("#example-modal-sizes-title-lg");
-
+            lastNameInput = $("#lastName"),
+            emailInput = $("#userEmail"),
+            setDateOfBirthDate = $("#dateOfBirthInput"),
+            genterWrapperInput = $("#genterWrapper"),
+            userPhone = $("#userNumber"),
+            subjects = $("#subjectsInput"),
+            currentAddress = $("#currentAddress"),
+            userHobbies = $("#hobbiesWrapper"),
+            state = $("#state"),
+            stateInput = $("#react-select-3-input"),
+            city = $("#city"),
+            cityInput = $("#react-select-4-input"),
+            titleText = $("#example-modal-sizes-title-lg");
 
 
     public RegistrationPage openPage() {
@@ -88,7 +87,7 @@ public class RegistrationPage {
 
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year ) {
+    public RegistrationPage setBirthDate(String day, String month, String year) {
         setDateOfBirthDate.click();
         calendar.setDate(day, month, year);
 
@@ -107,6 +106,11 @@ public class RegistrationPage {
 
         return this;
     }
+    public RegistrationPage closeModal() {
+        registrationResultModal.closeModal();
+
+        return this;
+    }
 
     public RegistrationPage titleText() {
         titleText.shouldHave(text("Thanks for submitting the form"));
@@ -120,9 +124,8 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadFile(String value) {
-        File pictureLoad = $("#uploadPicture").uploadFromClasspath("file.jpg");
+        File file = $("#uploadPicture").uploadFromClasspath("file.jpg");
 
-//        pictureLoad.uploadFile(new File("file.jpg"));
 
         return this;
     }

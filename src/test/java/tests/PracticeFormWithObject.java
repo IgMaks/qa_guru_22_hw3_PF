@@ -37,6 +37,7 @@ public class PracticeFormWithObject extends TestBase {
                 .verifyResult("Hobbies", utils.hobbies)
                 .verifyResult("Picture", utils.file.replaceAll("src/test/resources/",""))
                 .verifyResult("Address", utils.currentAddress)
-                .verifyResult("State and City", utils.state + " " + utils.city);
+                .verifyResult("State and City", utils.state + " " + utils.city)
+                .closeModal();
     }
 }
