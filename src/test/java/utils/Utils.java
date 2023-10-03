@@ -1,4 +1,4 @@
-package Utils;
+package utils;
 
 import com.github.javafaker.Faker;
 
@@ -6,19 +6,17 @@ import com.github.javafaker.Faker;
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
-    public static Faker faker = new Faker(new Locale("en"));
+    public Faker faker = new Faker(new Locale("en"));
     Random random = new Random();
-
 
 
     public String userName = faker.name().firstName(),
             lastName = faker.name().lastName(),
             userEmail = faker.internet().emailAddress(),
             userGender = getRandomGender(),
-            userNumber = getPhoneNumber(),
+            userNumber = faker.phoneNumber().subscriberNumber(10),
             day = String.format("%02d", faker.number().numberBetween(1, 28)),
             month = getMonth(),
             year = String.valueOf(faker.number().numberBetween(1950, 2010)),
@@ -32,38 +30,26 @@ public class Utils {
     public String getRandomGender() {
         String[] genders = {"Male", "Female", "Other"};
 
-        return getItemFromArray(genders);
-    }
-
-    public static String getItemFromArray(String[] array) {
-        int index = getRandomInt(0, array.length - 1);
-
-        return array[index];
-    }
-
-    public static int getRandomInt(int min, int max) {
-        return ThreadLocalRandom.current().nextInt(min, max + 1);
-    }
-
-    public String getPhoneNumber() {
-        return ("7" + faker.number().randomNumber(9, true));
+        return faker.options().option(genders);
     }
 
     public String getHobby() {
         String[] hobby = {"Sports", "Reading", "Music"};
-        return getItemFromArray(hobby);
+
+        return faker.options().option(hobby);
     }
 
     public String getSubjects() {
         String[] subjects = {"English", "Physics", "Arts"};
-        return getItemFromArray(subjects);
+
+        return faker.options().option(subjects);
     }
 
     public String getCityRandom() {
         String[] state = {"Delhi", "Agra", "Karnal", "Gurgaon",
                 "Lucknow", "Panipat", "Jaipur", "Jaiselmer"};
-        int i = random.nextInt(state.length);
-        return state[i];
+
+        return faker.options().option(state);
     }
 
     public String getStateByCity(String value) {
@@ -76,18 +62,20 @@ public class Utils {
         cityAndState.put("Panipat", "Haryana");
         cityAndState.put("Jaipur", "Rajasthan");
         cityAndState.put("Jaiselmer", "Rajasthan");
+
         return cityAndState.get(value);
     }
 
     public String getFileName() {
-        return "src/test/resources/1.jpg";
+
+        return "src/test/resources/file.jpg";
     }
 
     public String getMonth() {
         String[] month = {"January", "February", "March", "April", "May",
                 "June", "July", "August", "September", "October", "November", "December"};
-        int index = random.nextInt(month.length);
-        return month[index];
+
+        return faker.options().option(month);
     }
 
 }

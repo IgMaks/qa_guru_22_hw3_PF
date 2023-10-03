@@ -1,6 +1,6 @@
 package tests;
 
-import Utils.Utils;
+import utils.Utils;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
 
@@ -11,7 +11,6 @@ public class PracticeFormWithObject extends TestBase {
 
     @Test
     void successfulRegistrationTest() {
-
 
         registrationPage.openPage()
                 .closeBan()

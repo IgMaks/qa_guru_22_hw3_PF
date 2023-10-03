@@ -1,7 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.companents.RegistrationResultModal;
+import pages.components.RegistrationResultModalComponents;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
 
-    private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
+    private RegistrationResultModalComponents registrationResultModal = new RegistrationResultModalComponents();
 
 
     private final String titleText = "Text Box";

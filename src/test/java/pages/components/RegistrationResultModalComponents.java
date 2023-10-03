@@ -1,12 +1,10 @@
-package pages.companents;
-
-import com.codeborne.selenide.Configuration;
+package pages.components;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class RegistrationResultModal {
+public class RegistrationResultModalComponents {
     public void buttonSubmit(){
         $("#submit").click();
 

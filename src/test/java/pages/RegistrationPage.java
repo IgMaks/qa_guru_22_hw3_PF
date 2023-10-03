@@ -1,8 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.companents.Calendar;
-import pages.companents.RegistrationResultModal;
+import pages.components.CalendarComponents;
+import pages.components.RegistrationResultModalComponents;
 
 import java.io.File;
 
@@ -11,25 +11,25 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    private Calendar calendar = new Calendar();
-    private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
+    private CalendarComponents calendar = new CalendarComponents();
+    private RegistrationResultModalComponents registrationResultModal = new RegistrationResultModalComponents();
 
     private SelenideElement
             firstNameInput = $("#firstName"),
-            lastNameInput = $("#lastName"),
-            emailInput = $("#userEmail"),
-            setDateOfBirthDate = $("#dateOfBirthInput"),
-            genterWrapperInput = $("#genterWrapper"),
-            userPhone = $("#userNumber"),
-            subjects = $("#subjectsInput"),
-            currentAddress = $("#currentAddress"),
-            userHobbies = $("label[for='hobbies-checkbox-2']"),
-            pictureLoad = $("#uploadPicture"),
-            state = $("#state"),
-            stateInput = $("#react-select-3-input"),
-            city = $("#city"),
-            cityInput = $("#react-select-4-input"),
-            titleText = $("#example-modal-sizes-title-lg");
+   lastNameInput = $("#lastName"),
+     emailInput = $("#userEmail"),
+     setDateOfBirthDate = $("#dateOfBirthInput"),
+     genterWrapperInput = $("#genterWrapper"),
+     userPhone = $("#userNumber"),
+     subjects = $("#subjectsInput"),
+     currentAddress = $("#currentAddress"),
+     userHobbies = $("#hobbiesWrapper"),
+    state = $("#state"),
+    stateInput = $("#react-select-3-input"),
+    city = $("#city"),
+    cityInput = $("#react-select-4-input"),
+    titleText = $("#example-modal-sizes-title-lg");
+
 
 
     public RegistrationPage openPage() {
@@ -114,14 +114,15 @@ public class RegistrationPage {
         return this;
     }
 
-    public RegistrationPage setHobbies(String hobby) {
-        userHobbies.click();
-
+    public RegistrationPage setHobbies(String value) {
+        userHobbies.parent().$(byText(value)).click();
         return this;
     }
 
     public RegistrationPage uploadFile(String value) {
-        pictureLoad.uploadFile(new File(value));
+        File pictureLoad = $("#uploadPicture").uploadFromClasspath("file.jpg");
+
+//        pictureLoad.uploadFile(new File("file.jpg"));
 
         return this;
     }
