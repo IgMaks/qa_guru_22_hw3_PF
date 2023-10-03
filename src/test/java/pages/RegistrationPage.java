@@ -14,7 +14,6 @@ public class RegistrationPage {
     private Calendar calendar = new Calendar();
     private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
-
     private SelenideElement
             firstNameInput = $("#firstName"),
             lastNameInput = $("#lastName"),
@@ -89,7 +88,7 @@ public class RegistrationPage {
 
     }
 
-    public RegistrationPage setBirthDate(String day, String month, String year) {
+    public RegistrationPage setBirthDate(String day, String month, String year ) {
         setDateOfBirthDate.click();
         calendar.setDate(day, month, year);
 
@@ -105,16 +104,17 @@ public class RegistrationPage {
 
     public RegistrationPage clickButton() {
         registrationResultModal.buttonSubmit();
-        return this;
 
-    }
-
-    public RegistrationPage titleText(String value) {
-        titleText.shouldHave(text(value));
         return this;
     }
 
-    public RegistrationPage setHobbies() {
+    public RegistrationPage titleText() {
+        titleText.shouldHave(text("Thanks for submitting the form"));
+
+        return this;
+    }
+
+    public RegistrationPage setHobbies(String hobby) {
         userHobbies.click();
 
         return this;
@@ -122,6 +122,7 @@ public class RegistrationPage {
 
     public RegistrationPage uploadFile(String value) {
         pictureLoad.uploadFile(new File(value));
+
         return this;
     }
 
@@ -135,6 +136,7 @@ public class RegistrationPage {
     public RegistrationPage setCity(String value) {
         city.click();
         cityInput.setValue(value).pressEnter();
+
         return this;
     }
 }
