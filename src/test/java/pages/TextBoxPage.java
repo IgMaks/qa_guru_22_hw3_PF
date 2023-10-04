@@ -1,7 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.RegistrationResultModalComponents;
+import pages.components.RegistrationResultModal;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -9,14 +9,12 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class TextBoxPage {
 
-    private RegistrationResultModalComponents registrationResultModal = new RegistrationResultModalComponents();
+    private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
 
     private final String titleText = "Text Box";
     private SelenideElement
-            fullNameInput = $("#userName"),
-
-    emailInput = $("#userEmail");
+            fullNameInput = $("#userName");
 
 
     public TextBoxPage openPage() {
@@ -26,7 +24,8 @@ public class TextBoxPage {
 
         return this;
     }
-    public TextBoxPage closeBan(){
+
+    public TextBoxPage closeBan() {
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
         return this;
@@ -52,7 +51,7 @@ public class TextBoxPage {
         return this;
     }
 
-    public TextBoxPage verifyResult(String key, String value){
+    public TextBoxPage verifyResult(String key, String value) {
         $("#output").$(byText(key)).parent()
                 .shouldHave(text(value));
 

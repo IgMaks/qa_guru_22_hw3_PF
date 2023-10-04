@@ -1,8 +1,8 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.components.CalendarComponents;
-import pages.components.RegistrationResultModalComponents;
+import pages.components.CalendarComponent;
+import pages.components.RegistrationResultModal;
 
 import java.io.File;
 
@@ -11,8 +11,8 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
-    private CalendarComponents calendar = new CalendarComponents();
-    private RegistrationResultModalComponents registrationResultModal = new RegistrationResultModalComponents();
+    private CalendarComponent calendar = new CalendarComponent();
+    private RegistrationResultModal registrationResultModal = new RegistrationResultModal();
 
     private SelenideElement
             firstNameInput = $("#firstName"),
@@ -106,11 +106,7 @@ public class RegistrationPage {
 
         return this;
     }
-    public RegistrationPage closeModal() {
-        registrationResultModal.closeModal();
 
-        return this;
-    }
 
     public RegistrationPage titleText() {
         titleText.shouldHave(text("Thanks for submitting the form"));
@@ -124,7 +120,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage uploadFile(String value) {
-        File file = $("#uploadPicture").uploadFromClasspath("file.jpg");
+        $("#uploadPicture").uploadFromClasspath(value);
 
 
         return this;

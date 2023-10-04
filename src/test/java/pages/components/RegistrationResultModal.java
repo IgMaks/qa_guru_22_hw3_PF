@@ -4,13 +4,9 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 
-public class RegistrationResultModalComponents {
+public class RegistrationResultModal {
     public void buttonSubmit(){
         $("#submit").click();
-
-    }
-    public void closeModal(){
-        $("#closeLargeModal").click();
 
     }
 

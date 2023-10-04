@@ -64,7 +64,7 @@ public class Utils {
     }
 
     public String getFileName() {
-        return "src/test/resources/file.jpg";
+        return "file.jpg";
     }
 
     public String getMonth() {

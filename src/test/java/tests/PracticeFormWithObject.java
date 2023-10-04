@@ -1,5 +1,6 @@
 package tests;
 
+import org.junit.jupiter.api.Assertions;
 import utils.Utils;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
@@ -35,9 +36,8 @@ public class PracticeFormWithObject extends TestBase {
                 .verifyResult("Date of Birth", utils.day + " " + utils.month + "," + utils.year)
                 .verifyResult("Subjects", utils.subject)
                 .verifyResult("Hobbies", utils.hobbies)
-                .verifyResult("Picture", utils.file.replaceAll("src/test/resources/",""))
+                .verifyResult("Picture", utils.file.replaceAll("src/test/resources/", ""))
                 .verifyResult("Address", utils.currentAddress)
-                .verifyResult("State and City", utils.state + " " + utils.city)
-                .closeModal();
+                .verifyResult("State and City", utils.state + " " + utils.city);
     }
 }
