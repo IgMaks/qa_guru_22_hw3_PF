@@ -8,6 +8,7 @@ import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
 public class TestBase {
     @BeforeAll
     static void beforeAll() {
+
         Configuration.holdBrowserOpen = false;
         Configuration.baseUrl = "https://demoqa.com";
         Configuration.pageLoadStrategy = "eager";
