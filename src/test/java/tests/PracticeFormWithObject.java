@@ -1,6 +1,5 @@
 package tests;
 
-import org.junit.jupiter.api.Assertions;
 import utils.Utils;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
