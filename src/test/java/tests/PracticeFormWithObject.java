@@ -1,7 +1,5 @@
 package tests;
 
-import helpers.Attach;
-import org.junit.jupiter.api.AfterEach;
 import utils.Utils;
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage;
