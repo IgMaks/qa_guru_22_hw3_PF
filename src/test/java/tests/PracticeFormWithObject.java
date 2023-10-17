@@ -13,14 +13,6 @@ public class PracticeFormWithObject extends TestBase {
     RegistrationPage registrationPage = new RegistrationPage();
     Utils utils = new Utils();
 
-    @AfterEach
-    void addAttachments() {
-        Attach.screenshotAs("Last screenshot");
-        Attach.pageSource();
-        Attach.browserConsoleLogs();
-        Attach.addVideo();
-    }
-
     @Test
     void successfulRegistrationTest() {
         step("Open form",() -> {
@@ -42,7 +34,7 @@ public class PracticeFormWithObject extends TestBase {
                     .setCity(utils.city)
                     .clickButton();
         });
-        step("Filling form", () -> {
+        step("Check form", () -> {
             registrationPage.titleText()
                     .verifyResult("Student Name", utils.userName + " " + utils.lastName)
                     .verifyResult("Student Email", utils.userEmail)

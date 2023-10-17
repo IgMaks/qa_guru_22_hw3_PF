@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 import pages.components.CalendarComponent;
 import pages.components.RegistrationResultModal;
 
@@ -30,7 +31,6 @@ public class RegistrationPage {
             cityInput = $("#react-select-4-input"),
             titleText = $("#example-modal-sizes-title-lg");
 
-
     public RegistrationPage openPage() {
         open("/automation-practice-form");
 
@@ -42,7 +42,6 @@ public class RegistrationPage {
         executeJavaScript("$('footer').remove()");
         return this;
     }
-
     public RegistrationPage setFirstName(String value) {
         firstNameInput.setValue(value);
 
